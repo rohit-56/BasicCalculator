@@ -1,7 +1,28 @@
-import logo from './logo.svg';
+import {add,sub,mul,div} from './Functions'
+import React,{useState} from 'react';
 import './App.css';
 
 function App() {
+
+  const [text,setText]=useState("");
+
+
+  const addMethod=()=>{
+      setText(""+add(12,13));
+  }
+  const subMethod=()=>{
+    
+  }
+
+  const mulMethod=()=>{
+    
+  }
+  const divMethod=()=>{
+    
+  }
+
+
+
   return (
     <>
     <div>
@@ -30,15 +51,15 @@ function App() {
 </div>
  </div>
    <div className="container my-3">
-        <button className="btn btn-primary mx-2">Addition( + )</button>
-        <button className="btn btn-primary mx-2">Subtraction( - )</button>
-        <button className="btn btn-primary mx-2">Multiply( * )</button>
-        <button className="btn btn-primary mx-2">Division( / )</button>
+        <button className="btn btn-primary mx-2" onClick={addMethod}>Addition( + )</button>
+        <button className="btn btn-primary mx-2" onClick={subMethod}>Subtraction( - )</button>
+        <button className="btn btn-primary mx-2" onClick={mulMethod}>Multiply( * )</button>
+        <button className="btn btn-primary mx-2" onClick={divMethod}>Division( / )</button>
    </div>
 
    <div className="container my-5">
        <h1>Output</h1>
-       <textarea className='form-control'></textarea>
+       <textarea className='form-control' value={text} id='outputArea'></textarea>
    </div>
 
     </>

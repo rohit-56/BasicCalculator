@@ -1,27 +1,42 @@
-import {add,sub,mul,div} from './Functions'
+import {add,sub,mul,div} from "./Functions";
 import React,{useState} from 'react';
 import './App.css';
 
 function App() {
 
   const [text,setText]=useState("");
+  const [input1,setInput1]=useState("");
+  const [input2,setInput2]=useState("");
 
 
   const addMethod=()=>{
-      setText(""+add(12,13));
+      let a=parseInt(input1);
+      let b=parseInt(input2);
+      setText(add(a,b));
   }
   const subMethod=()=>{
-    
+    let a=parseInt(input1);
+    let b=parseInt(input2);
+      setText(sub(a,b));
   }
 
   const mulMethod=()=>{
-    
+    let a=parseInt(input1);
+      let b=parseInt(input2);
+    setText(mul(a,b));
   }
   const divMethod=()=>{
-    
+    let a=parseInt(input1);
+      let b=parseInt(input2);
+    setText(div(a,b));
   }
 
-
+  const handleInput1=(event)=>{
+     setInput1(event.target.value);
+  }
+  const handleInput2=(event)=>{
+    setInput2(event.target.value);
+ }
 
   return (
     <>
@@ -41,12 +56,12 @@ function App() {
 
   <div className="container my-5">
 <div class="form-floating my-3">
-  <textarea class="form-control" id="Input1" ></textarea>
+  <textarea class="form-control" value={input1}  onChange={handleInput1} id="Input1" ></textarea>
   <label for="floatingInput">Enter First Value</label>
 </div>
 
 <div class="form-floating my-3">
-  <textarea class="form-control" id="Input2" ></textarea>
+  <textarea class="form-control" value={input2} onChange={handleInput2} id="Input2" ></textarea>
   <label for="floatingInput">Enter Second Value</label>
 </div>
  </div>
@@ -61,7 +76,6 @@ function App() {
        <h1>Output</h1>
        <textarea className='form-control' value={text} id='outputArea'></textarea>
    </div>
-
     </>
   );
 }
